@@ -1,0 +1,91 @@
+/* 
+    Document   : sc_our_team
+    Created on : Jun 23, 2014, 7:07:26 PM
+    Author     : Bilal
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/**
+* Grid CSS
+*/
+.grid#sc_our_team{
+    overflow: hidden;
+    width: 100%;
+}
+.grid#sc_our_team .sc_team_member{
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 5px;
+    
+}
+.grid#sc_our_team .sc_team_member .icons{
+    margin-top: 70%;
+}
+.grid#sc_our_team .sc_team_member .icons img{
+    width: 25px;
+    margin-right: 5px;
+
+}
+.grid#sc_our_team .sc_team_member .sc_team_member_jobtitle,
+.grid#sc_our_team .sc_team_member .sc_team_member_name{
+    height: 15px;
+}
+.grid#sc_our_team .sc_team_member img.wp-post-image{
+    
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    float: none;
+    border: none;
+    padding: 0;
+}
+.grid#sc_our_team .sc_team_member .sc_team_member_name{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.grid#sc_our_team .sc_team_member_inner{
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+    background-size: cover;     
+    position: relative;
+    text-align: center;
+    background: #404040;
+}
+.grid#sc_our_team .sc_team_member .sc_team_member_overlay{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    padding: 0 10px;
+    height: 35px;
+    color: #fff;
+    background: rgba(50,50,50,0.5);
+}
+@media (min-width: 768px){
+    .grid#sc_our_team .sc_team_member{
+        float: left;
+        width: 25%;
+    }
+    .grid#sc_our_team .sc_team_member img.wp-post-image{
+
+    }
+    .grid#sc_our_team .sc_team_member_inner{
+        
+    }
+}
+
+@media (min-width: 481px) and (max-width: 767px){
+    .grid#sc_our_team .sc_team_member{
+        float: left;
+        width: 33.33%;
+    }
+}
+@media (max-width: 480px){
+    .grid#sc_our_team .sc_team_member{
+        float: left;
+        width: 50%;
+    }
+}
