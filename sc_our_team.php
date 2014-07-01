@@ -1,28 +1,31 @@
 <?php
 /*
   Plugin Name: Our Team Showcase
-  Plugin URI: http://smartcatdesign.net/our-team-wordpress-plugin
+  Plugin URI: http://smartcatdesign.net/our-team-showcase/
   Description: Display your team members in a very attractive way as a widget or page with a shortcode
-  Version: 1.0
+  Version: 1.1
   Author: SmartCat
   Author URI: http://smartcatdesign.net
   License: GPL v2
  */
 
-define('SC_TEAM_PATH',plugin_dir_url(__FILE__));
+if(!defined('SC_TEAM_PATH'))
+    define('SC_TEAM_PATH', plugin_dir_url(__FILE__));
 
 
 register_activation_hook(__FILE__, 'sc_team');
 
-function sc_team(){
+function sc_team() {
     add_option('sc_team_activation_redirect', true);
     sc_team_register_options();
 }
 
-function sc_team_register_options(){
+function sc_team_register_options() {
     // declare options array
     $sc_team_options = array(
         'sc_our_team_template' => 'grid',
+        'sc_our_team_social' => 'yes',
+        'sc_our_team_profile_link' => 'yes'
     );
     // check if option is set, if not, add it
     foreach ($sc_team_options as $option_name => $option_value) {
@@ -37,7 +40,7 @@ function sc_team_register_options(){
 // redirect when activated
 add_action('admin_init', 'sc_team_activation_redirect');
 
-function sc_team_activation_redirect(){
+function sc_team_activation_redirect() {
     if (get_option('sc_team_activation_redirect', false)) {
         delete_option('sc_team_activation_redirect');
         wp_redirect(admin_url() . 'edit.php?post_type=team_member&page=sc_team_settings');
@@ -51,17 +54,21 @@ function sc_team_activation_redirect(){
  */
 add_action('admin_menu', 'sc_team_menu');
 
-function sc_team_menu(){
+function sc_team_menu() {
 //    add_options_page('Our Team Plugin Settings', 'Our Team Settings', 'administrator', 'sc_team_options.php', 'sc_team_options');
-    add_submenu_page('edit.php?post_type=team_member', 'Settings', 'Settings', 'administrator', 'sc_team_settings','sc_team_settings');
-    add_submenu_page('edit.php?post_type=team_member', 'Re-Order Members', 'Re-Order Members', 'administrator', 'sc_team_reorder','sc_team_reorder');
+    add_submenu_page('edit.php?post_type=team_member', 'Settings', 'Settings', 'administrator', 'sc_team_settings', 'sc_team_settings');
+    add_submenu_page('edit.php?post_type=team_member', 'Re-Order Members', 'Re-Order Members', 'administrator', 'sc_team_reorder', 'sc_team_reorder');
 }
 
-function sc_team_reorder(){
+function sc_team_reorder() {
     include_once 'inc/reorder.php';
 }
 
-function sc_team_settings(){
+function sc_team_settings() {
+
+    if (isset($_REQUEST['sc_our_team_save']) && $_REQUEST['sc_our_team_save'] == 'Update') {
+        sc_team_register_options();
+    }
     include_once 'inc/options.php';
 }
 
@@ -71,29 +78,30 @@ function sc_team_settings(){
  */
 add_action('admin_head', 'sc_team_add_menu_icon');
 
-function sc_team_add_menu_icon(){
+function sc_team_add_menu_icon() {
     ?>
     <style>
-/*        #adminmenu .menu-icon-team_member div.wp-menu-image:before {
-            content: '\f338';
-        }*/
+        /*        #adminmenu .menu-icon-team_member div.wp-menu-image:before {
+                    content: '\f338';
+                }*/
     </style>
-<?php
+    <?php
 }
 
 /**
  * Hook implements wp_enqueue_scripts
  * function loads plugin styles and scripts
  */
-
 function my_enqueue($hook) {
     wp_enqueue_style('sc_team_admin_style', SC_TEAM_PATH . 'style/sc_our_team_admin.css');
-    wp_enqueue_script( 'my_custom_script', SC_TEAM_PATH . 'script/sc_our_team_admin.js',array('jquery') );
+    wp_enqueue_script('my_custom_script', SC_TEAM_PATH . 'script/sc_our_team_admin.js', array('jquery'));
 }
-add_action( 'admin_enqueue_scripts', 'my_enqueue' );
+
+add_action('admin_enqueue_scripts', 'my_enqueue');
 
 add_action('wp_enqueue_scripts', 'sc_team_load_styles_scripts');
-function sc_team_load_styles_scripts(){
+
+function sc_team_load_styles_scripts() {
 
     // plugin main style
     wp_enqueue_style('sc_team_default_style', plugin_dir_url(__FILE__) . 'style/sc_our_team.css', false, '1.0');
@@ -108,16 +116,15 @@ function sc_team_load_styles_scripts(){
  */
 add_shortcode('our-team', 'set_our_team');
 
-function set_our_team($atts){
+function set_our_team($atts) {
     extract(shortcode_atts(array(
         'id' => '1'
-    ), $atts));
+                    ), $atts));
 
-    if(get_option('sc_our_team_template') === false or get_option('sc_our_team_template') == '')
+    if (get_option('sc_our_team_template') === false or get_option('sc_our_team_template') == '')
         include 'inc/grid.php';
     else
         include 'inc/' . get_option('sc_our_team_template') . '.php';
-
 }
 
 /**
@@ -126,7 +133,7 @@ function set_our_team($atts){
  */
 add_action('init', 'team_members');
 
-function team_members(){
+function team_members() {
     $labels = array(
         'name' => _x('Team', 'post type general name'),
         'singular_name' => _x('Team Member', 'post type singular name'),
@@ -186,16 +193,16 @@ function team_members(){
  */
 add_action('add_meta_boxes', 'team_member_info_box');
 
-function team_member_info_box(){
+function team_member_info_box() {
     add_meta_box(
-        'team_member_info_box', __('Additional Information', 'myplugin_textdomain'), 'team_member_info_box_content', 'team_member', 'advanced', 'high'
+            'team_member_info_box', __('Additional Information', 'myplugin_textdomain'), 'team_member_info_box_content', 'team_member', 'advanced', 'high'
     );
 }
 
 /**
  * function called by team_member_info_box
  */
-function team_member_info_box_content($post){
+function team_member_info_box_content($post) {
     //nonce
     wp_nonce_field(plugin_basename(__FILE__), 'team_member_info_box_content_nonce');
 
@@ -231,19 +238,19 @@ function team_member_info_box_content($post){
  */
 add_action('save_post', 'team_member_box_save');
 
-function team_member_box_save($post_id){
+function team_member_box_save($post_id) {
 
     $slug = 'team_member';
 
-    if(isset($_POST['post_type'])){
+    if (isset($_POST['post_type'])) {
         if ($slug != $_POST['post_type']) {
             return;
         }
     }
 
     // get var values
-    if(get_post_meta($post_id,'sc_member_order',true) == '' || get_post_meta($post_id,'sc_member_order',true) === FALSE)
-        update_post_meta($post_id,'sc_member_order',0);
+    if (get_post_meta($post_id, 'sc_member_order', true) == '' || get_post_meta($post_id, 'sc_member_order', true) === FALSE)
+        update_post_meta($post_id, 'sc_member_order', 0);
 
 
     if (isset($_REQUEST['team_member_title'])) {
@@ -251,7 +258,7 @@ function team_member_box_save($post_id){
         update_post_meta($post_id, 'team_member_title', $facebook_url);
     }
 
-        if (isset($_REQUEST['team_member_email'])) {
+    if (isset($_REQUEST['team_member_email'])) {
         $facebook_url = $_POST['team_member_email'];
         update_post_meta($post_id, 'team_member_email', $facebook_url);
     }
@@ -276,7 +283,6 @@ function team_member_box_save($post_id){
         $gplus_url = $_POST['team_member_gplus'];
         update_post_meta($post_id, 'team_member_gplus', $gplus_url);
     }
-
 }
 
 /**
@@ -287,58 +293,57 @@ class sc_team_widget extends WP_Widget {
 
     function __construct() {
         parent::__construct(
-            'sc_team_widget',
-            __('Our Team Widget', 'sc_team_widget_domain'),
-            array( 'description' => __( 'Use this widget to display the Our Team anywhere on the site.', 'sc_team_widget_domain' ), )
+                'sc_team_widget', __('Our Team Widget', 'sc_team_widget_domain'), array('description' => __('Use this widget to display the Our Team anywhere on the site.', 'sc_team_widget_domain'),)
         );
     }
 
     // Creating widget front-end
     // This is where the action happens
-    public function widget( $args, $instance ) {
-        $title = apply_filters( 'widget_title', $instance['title'] );
-        
+    public function widget($args, $instance) {
+        $title = apply_filters('widget_title', $instance['title']);
+
         // before and after widget arguments are defined by themes
         echo $args['before_widget'];
-        if ( ! empty( $title ) )
+        if (!empty($title))
             echo $args['before_title'] . $title . $args['after_title'];
 
         // This is where you run the code and display the output
-        include 'inc/grid.php';
+        include 'inc/widget.php';
         //        echo $args['after_title'];
-
     }
 
     // Widget Backend
-    public function form( $instance ) {
-        if ( isset( $instance[ 'title' ] ) ) {
-            $title = $instance[ 'title' ];
-        }
-        else {
-            $title = __( 'Meet Our Team', 'sc_team_widget_domain' );
+    public function form($instance) {
+        if (isset($instance['title'])) {
+            $title = $instance['title'];
+        } else {
+            $title = __('Meet Our Team', 'sc_team_widget_domain');
         }
         // Widget admin form
         ?>
         <p>
-            <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
-            <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
+            <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
         </p>
-    <?php
+        <?php
     }
 
     // Updating widget replacing old instances with new
-    public function update( $new_instance, $old_instance ) {
+    public function update($new_instance, $old_instance) {
         $instance = array();
-        $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+        $instance['title'] = (!empty($new_instance['title']) ) ? strip_tags($new_instance['title']) : '';
         return $instance;
     }
-} // Class sc_team_widget ends here
 
+}
+
+// Class sc_team_widget ends here
 // Register and load the widget
 function wpb_load_widget() {
-    register_widget( 'sc_team_widget' );
+    register_widget('sc_team_widget');
 }
-add_action( 'widgets_init', 'wpb_load_widget' );
+
+add_action('widgets_init', 'wpb_load_widget');
 
 
 /**
@@ -346,13 +351,15 @@ add_action( 'widgets_init', 'wpb_load_widget' );
  */
 add_filter('manage_posts_columns', 'posts_columns', 5);
 add_action('manage_posts_custom_column', 'posts_custom_columns', 5, 2);
-function posts_columns($defaults){
+
+function posts_columns($defaults) {
     $defaults['riv_post_thumbs'] = __('Profile Picture');
     return $defaults;
 }
-function posts_custom_columns($column_name, $id){
-    if($column_name === 'riv_post_thumbs'){
-        echo the_post_thumbnail( 'thumbnail' );
+
+function posts_custom_columns($column_name, $id) {
+    if ($column_name === 'riv_post_thumbs') {
+        echo the_post_thumbnail('thumbnail');
     }
 }
 
@@ -361,9 +368,29 @@ function posts_custom_columns($column_name, $id){
  */
 add_action('wp_ajax_my_update_pm', 'sc_team_update_order');
 add_action('wp_ajax_nopriv_my_update_pm', 'sc_team_update_order');
-function sc_team_update_order(){
+
+function sc_team_update_order() {
     $post_id = $_POST['id'];
     $sc_member_order = $_POST['sc_member_order'];
     //update_post_meta($post_id, $meta_key, $sc_member_order)
     update_post_meta($post_id, 'sc_member_order', $sc_member_order);
+}
+
+/**
+ * Aux functions
+ */
+//social function
+function get_social($facebook, $twitter, $linkedin, $gplus, $email) {
+    if ('yes' == get_option('sc_our_team_social')) {
+        if ($facebook != '')
+            echo '<a href="' . $facebook . '"><img src="' . SC_TEAM_PATH . 'img/fb.png"/></a>';
+        if ($twitter != '')
+            echo '<a href="' . $twitter . '"><img src="' . SC_TEAM_PATH . 'img/twitter.png"/></a>';
+        if ($linkedin != '')
+            echo '<a href="' . $linkedin . '"><img src="' . SC_TEAM_PATH . 'img/linkedin.png"/></a>';
+        if ($gplus != '')
+            echo '<a href="' . $gplus . '"><img src="' . SC_TEAM_PATH . 'img/google.png"/></a>';
+        if ($email != '')
+            echo '<a href=mailto:"' . $email . '"><img src="' . SC_TEAM_PATH . 'img/email.png"/></a>';
+    }
 }

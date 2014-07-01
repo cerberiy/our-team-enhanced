@@ -81,6 +81,9 @@
     .width70{ width: 70%;}
     .width25{ width: 25% !important;}
     .width50{ width: 50%;}
+    .larger{ font-size: larger;}
+    .bold{ font-weight: bold;}
+    .editcursor{ cursor: text}
 </style>
 
 <div id="wrapper">
@@ -101,7 +104,7 @@
             </tr>
             <tr>
                 <td>
-                    If you have any questions, please head to my <a target="_blank" href="http://smartcatdesign.net/support/">website</a>, or use the <a target="_blank" href="http://wordpress.org/support/plugin/our-team-showcase">support forums</a> on WordPress.org. <br><br>
+                    If you have any questions, please head to my <a target="_blank" href="http://smartcatdesign.net/support/">website</a>, or use the <a target="_blank" href="http://wordpress.org/plugins/our-team-enhanced/">support forums</a> on WordPress.org. <br><br>
                     If you need priority support, or specific customization, please <a href="http://smartcatdesign.net">contact me.</a>
                 </td>
             </tr>
@@ -123,7 +126,7 @@
             <tr>
                 <td>
                     <ul>
-                        <li>- <a href="http://wordpress.org/support/view/plugin-reviews/our-team-showcase" target="_blank">Leave ★★★★★ rating on WordPress.org</a></li>
+                        <li>- <a href="http://wordpress.org/support/view/plugin-reviews/our-team-enhanced" target="_blank">Leave ★★★★★ rating on WordPress.org</a></li>
                         <li>- Write a comment on the <a href="https://www.facebook.com/SmartcatDesign" target="_blank">Facebook Page</a></li>
                     </ul>
 
