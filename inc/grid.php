@@ -4,15 +4,11 @@
  * @author bilal hassan <info@smartcatdesign.net>
  * 
  */
-$args = array(
-    'post_type' => 'team_member',
-    'meta_key' => 'sc_member_order',
-    'orderby' => 'meta_value',
-    'order' => 'ASC'
-);
+$args = sc_get_args();
 $members = new WP_Query($args);
 ?>
 <div id="sc_our_team" class="<?php echo get_option('sc_our_team_template'); ?>">
+    <div class="clear"></div>
     <?php
     if ($members->have_posts()) {
         while ($members->have_posts()) {
@@ -21,6 +17,7 @@ $members = new WP_Query($args);
             <div itemscope itemtype="http://schema.org/Person" class="sc_team_member">
                 <div class="sc_team_member_inner">
                     <?php
+                    
                     if (has_post_thumbnail())
                         echo the_post_thumbnail('medium');
                     else {
@@ -61,4 +58,5 @@ $members = new WP_Query($args);
         echo 'There are no team members to display';
     }
     ?>
+    <div class="clear"></div>
 </div>

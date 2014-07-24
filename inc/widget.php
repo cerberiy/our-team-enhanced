@@ -5,12 +5,8 @@
  * @author bilal hassan <info@smartcatdesign.net>
  * 
  */
-$args = array(
-    'post_type' => 'team_member',
-    'meta_key' => 'sc_member_order',
-    'orderby' => 'meta_value',
-    'order' => 'ASC'
-);
+
+$args = sc_get_args();
 $team = new WP_Query($args);
 ?>
 <div id="sc_our_team" class="widget">

@@ -12,11 +12,12 @@
                 <td>
                     <ul class="sortable grid" data-action="<?php echo SC_TEAM_PATH; ?>">
                         <?php
-                        $args = array(
+                       $args = array(
                             'post_type' => 'team_member',
                             'meta_key' => 'sc_member_order',
-                            'orderby' => 'meta_value',
-                            'order' => 'ASC'
+                            'orderby' => 'meta_value_num',
+                            'order' => 'ASC',
+                            'posts_per_page' => -1,
                         );
                         $members = new WP_Query($args);
                         if ($members->have_posts()) {

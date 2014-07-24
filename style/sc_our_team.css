@@ -137,12 +137,13 @@
     width: 25px;
 }
 
-
+/**
+* widget css
+*/
 .widget#sc_our_team .sc_team_member{
     width: 100%;
     overflow: hidden;
     margin: 0 0 10px 0;
-    
 }
 .widget#sc_our_team .sc_team_member .wp-post-image{
     float: left;
@@ -161,4 +162,14 @@
 
 .widget#sc_our_team .sc_team_member .sc_team_member_overlay .sc_team_member_name{
     font-weight: bold;
+}
+/**
+* single post
+*/
+.sc_team_single_icons img.sc-social{
+    width: 25px;
+    margin-right: 10px;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
 }

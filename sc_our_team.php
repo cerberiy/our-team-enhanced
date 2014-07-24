@@ -3,7 +3,7 @@
   Plugin Name: Our Team Showcase
   Plugin URI: http://smartcatdesign.net/our-team-showcase/
   Description: Display your team members in a very attractive way as a widget or page with a shortcode
-  Version: 1.1
+  Version: 1.2
   Author: SmartCat
   Author URI: http://smartcatdesign.net
   License: GPL v2
@@ -17,6 +17,7 @@ register_activation_hook(__FILE__, 'sc_team');
 
 function sc_team() {
     add_option('sc_team_activation_redirect', true);
+    flush_rewrite_rules();
     sc_team_register_options();
 }
 
@@ -25,7 +26,9 @@ function sc_team_register_options() {
     $sc_team_options = array(
         'sc_our_team_template' => 'grid',
         'sc_our_team_social' => 'yes',
-        'sc_our_team_profile_link' => 'yes'
+        'sc_our_team_profile_link' => 'yes',
+        'sc_our_team_member_count' => -1,
+        
     );
     // check if option is set, if not, add it
     foreach ($sc_team_options as $option_name => $option_value) {
@@ -102,29 +105,32 @@ add_action('admin_enqueue_scripts', 'my_enqueue');
 add_action('wp_enqueue_scripts', 'sc_team_load_styles_scripts');
 
 function sc_team_load_styles_scripts() {
-
     // plugin main style
-    wp_enqueue_style('sc_team_default_style', plugin_dir_url(__FILE__) . 'style/sc_our_team.css', false, '1.0');
+    wp_enqueue_style('sc_team_default_style', plugin_dir_url(__FILE__) . 'style/sc_our_team.css', false, '1.2');
 
     // plugin main script
-    wp_enqueue_script('sc_team_default_script', plugin_dir_url(__FILE__) . 'script/sc_our_team.js', array('jquery'), '1.0');
+    wp_enqueue_script('sc_team_default_script', plugin_dir_url(__FILE__) . 'script/sc_our_team.js', array('jquery'), '1.2');
 }
 
 /**
- * Hook adds shortcode
- * function triggered by shortcode and displays team page
+ * 
  */
 add_shortcode('our-team', 'set_our_team');
-
 function set_our_team($atts) {
     extract(shortcode_atts(array(
-        'id' => '1'
                     ), $atts));
+    global $content;
 
-    if (get_option('sc_our_team_template') === false or get_option('sc_our_team_template') == '')
+    ob_start();
+
+    if (get_option('sc_our_team_template') === false or get_option('sc_our_team_template') == '') {
         include 'inc/grid.php';
-    else
+        $output = ob_get_clean();
+    } else {
         include 'inc/' . get_option('sc_our_team_template') . '.php';
+        $output = ob_get_clean();
+    }
+    return $output;
 }
 
 /**
@@ -159,33 +165,11 @@ function team_members() {
         'has_archive' => true,
     );
     register_post_type('team_member', $args);
+    //Ensure the $wp_rewrite global is loaded
+    global $wp_rewrite;
+    //Call flush_rules() as a method of the $wp_rewrite object
+    $wp_rewrite->flush_rules( false );
 }
-
-/*
- * Handle Taxonomy for custom types
- */
-//add_action('init', 'team_member_positions', 0);
-//
-//function team_member_positions(){
-//    $labels = array(
-//        'name' => _x('Positions', 'taxonomy general name'),
-//        'singular_name' => _x('Position', 'taxonomy singular name'),
-//        'search_items' => __('Search Positions'),
-//        'all_items' => __('All Positions'),
-//        'parent_item' => __('Parent Position'),
-//        'parent_item_colon' => __('Parent Position:'),
-//        'edit_item' => __('Edit Position'),
-//        'update_item' => __('Update Position'),
-//        'add_new_item' => __('Add New Position'),
-//        'new_item_name' => __('New Position'),
-//        'menu_name' => __('Positions'),
-//    );
-//    $args = array(
-//        'labels' => $labels,
-//        'hierarchical' => true,
-//    );
-//    register_taxonomy('team_member_position', 'team_member', $args);
-//}
 
 /**
  * Hook to add custom fields box
@@ -383,14 +367,56 @@ function sc_team_update_order() {
 function get_social($facebook, $twitter, $linkedin, $gplus, $email) {
     if ('yes' == get_option('sc_our_team_social')) {
         if ($facebook != '')
-            echo '<a href="' . $facebook . '"><img src="' . SC_TEAM_PATH . 'img/fb.png"/></a>';
+            echo '<a href="' . $facebook . '"><img src="' . SC_TEAM_PATH . 'img/fb.png" class="sc-social"/></a>';
         if ($twitter != '')
-            echo '<a href="' . $twitter . '"><img src="' . SC_TEAM_PATH . 'img/twitter.png"/></a>';
+            echo '<a href="' . $twitter . '"><img src="' . SC_TEAM_PATH . 'img/twitter.png" class="sc-social"/></a>';
         if ($linkedin != '')
-            echo '<a href="' . $linkedin . '"><img src="' . SC_TEAM_PATH . 'img/linkedin.png"/></a>';
+            echo '<a href="' . $linkedin . '"><img src="' . SC_TEAM_PATH . 'img/linkedin.png" class="sc-social"/></a>';
         if ($gplus != '')
-            echo '<a href="' . $gplus . '"><img src="' . SC_TEAM_PATH . 'img/google.png"/></a>';
+            echo '<a href="' . $gplus . '"><img src="' . SC_TEAM_PATH . 'img/google.png" class="sc-social"/></a>';
         if ($email != '')
-            echo '<a href=mailto:"' . $email . '"><img src="' . SC_TEAM_PATH . 'img/email.png"/></a>';
+            echo '<a href=mailto:"' . $email . '"><img src="' . SC_TEAM_PATH . 'img/email.png" class="sc-social"/></a>';
     }
 }
+
+
+function get_custom_post_type_template($single_template) {
+     global $post;
+
+     if ($post->post_type == 'my_post_type') {
+          $single_template = dirname( __FILE__ ) . '/post-type-template.php';
+     }
+     return $single_template;
+}
+add_filter( 'single_template', 'get_custom_post_type_template' );
+
+
+function sc_get_args(){
+    $args = array(
+        'post_type' => 'team_member',
+        'meta_key' => 'sc_member_order',
+        'orderby' => 'meta_value_num',
+        'order' => 'ASC',
+        'posts_per_page' => get_option('sc_our_team_member_count'),
+    );
+    
+    return $args;
+}
+
+function set_single_content($content) {
+    global $post;
+
+    if ($post->post_type == 'team_member') {
+        $facebook = get_post_meta(get_the_ID(), 'team_member_facebook', true);
+        $twitter = get_post_meta(get_the_ID(), 'team_member_twitter', true);
+        $linkedin = get_post_meta(get_the_ID(), 'team_member_linkedin', true);
+        $gplus = get_post_meta(get_the_ID(), 'team_member_gplus', true);
+        $email = get_post_meta(get_the_ID(), 'team_member_email', true);
+        
+        echo '<div class="sc_team_single_icons">';
+        get_social($facebook, $twitter, $linkedin, $gplus, $email);
+        echo '</div>';
+    }
+    return $content;
+}
+add_filter('the_content', 'set_single_content');

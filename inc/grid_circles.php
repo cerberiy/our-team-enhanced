@@ -4,15 +4,11 @@
  * Date: 2014-06-26
  * Time: 11:04 AM
  */
-$args = array(
-    'post_type' => 'team_member',
-    'meta_key' => 'sc_member_order',
-    'orderby' => 'meta_value',
-    'order' => 'ASC'
-);
+$args = sc_get_args();
 $members = new WP_Query($args);
 ?>
 <div id="sc_our_team" class="<?php echo get_option('sc_our_team_template'); ?>">
+    <div class="clear"></div>
     <?php
     if ($members->have_posts()) {
         while ($members->have_posts()) {
@@ -56,4 +52,5 @@ $members = new WP_Query($args);
         echo 'There are no team members to display';
     }
     ?>
+    <div class="clear"></div>
 </div>

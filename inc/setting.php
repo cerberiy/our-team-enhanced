@@ -84,19 +84,37 @@
     .larger{ font-size: larger;}
     .bold{ font-weight: bold;}
     .editcursor{ cursor: text}
+    .red{ color: #CC0000; }
 </style>
 
 <div id="wrapper">
     <div id="gopro">
         <div class="left">
             <h1><b>Our Team Settings</b></h1>
-            <div>Professional, sleek and easily customizable Team page & widget with extra options!</div>
+            <div><em>Why go pro ?</em> 2 additional templates: Stacked and Honeycomb. As well as color customization, and the option to add different team groups/departments</div>
         </div>
         <div class="right">
-            <!--<a href="http://smartcatdesign.net/wp-construction-mode-pro-wordpress-plugin/" target="_blank" class="button-primary" style="padding: 40px;line-height: 0;font-size: 20px">GO PRO NOW</a>-->
+            <a href="http://smartcatdesign.net/product/our-team-showcase-pro/" target="_blank" class="button-primary" style="padding: 40px;line-height: 0;font-size: 20px">GO PRO NOW</a>
         </div>
     </div>
     <div class="width25 right">
+        <table class="widefat">
+            <thead>
+                <tr>
+                    <th><b>Pro version features</b></th>
+                </tr>
+                <tr>
+                    <td>
+                        <ul>
+                            <li>2 very appealing additional display templates</li>
+                            <li>Easy Color customization with a color picker</li>
+                            <li>Assign team members to groups or departments</li>
+                            <li>Control which groups to show, or show all members</li>
+                        </ul>
+                    </td>
+                </tr>
+            </thead>
+        </table>
         <table class="widefat">
             <thead>
             <tr>
@@ -104,8 +122,8 @@
             </tr>
             <tr>
                 <td>
-                    If you have any questions, please head to my <a target="_blank" href="http://smartcatdesign.net/support/">website</a>, or use the <a target="_blank" href="http://wordpress.org/plugins/our-team-enhanced/">support forums</a> on WordPress.org. <br><br>
-                    If you need priority support, or specific customization, please <a href="http://smartcatdesign.net">contact me.</a>
+                    <p>For plugin setup instructions and FAQ's <a href="http://smartcatdesign.net/our-team-showcase/" target="_blank">Click Here</a></p>
+                    <p>If you come across any bugs or issues, please <a href="http://smartcatdesign.net/contact" target="_blank">contact us</a> and let us know</p>
                 </td>
             </tr>
             <!--                <tr>
@@ -138,17 +156,13 @@
             <thead>
             <tr>
                 <th>
-                    <b>About the Developer</b>
+                    <b>Basic Setup Demo</b>
                 </th>
             </tr>
             <tr>
                 <td>
-                    My name is Bilal Hassan, from Kingston, Ontario, Canada. I am a web developer, and WordPress is my favorite framework. I love making plugins
-                    that help you add cool and user-friendly features to your website. I also make WordPress themes.<br><br>
-                    Take a look at my website and other plugins, I also develop WordPress themes.<br><br>
-                    I know the WordPress framework very well, if you need help with customization or development, I am available for hire :)<br><br>
-                    Please like my Facebook page to keep up to date with my plugins and themes.<br><br>
-                    <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FSmartcatDesign&amp;width&amp;layout=standard&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=35&amp;appId=233286813420319" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:35px;" allowTransparency="true"></iframe>
+                    <iframe width="100%" height="300px" src="//www.youtube.com/embed/upV_fevCh_s?rel=0" frameborder="0" allowfullscreen></iframe>
+                    
                 </td>
             </tr>
             </thead>
