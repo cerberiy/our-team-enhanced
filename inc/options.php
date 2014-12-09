@@ -33,7 +33,7 @@
                 <tr>
                     <td>Max Number of members to display</td>
                     <td>
-                        <input type="text" value="<?php echo get_option('sc_our_team_member_count'); ?>" name="sc_our_team_member_count" placeholder="number of members to show"/><br>
+                        <input type="text" value="<?php echo esc_html( get_option('sc_our_team_member_count') ); ?>" name="sc_our_team_member_count" placeholder="number of members to show"/><br>
                         <em>Set to -1 to display all members</em>
                     </td>
                 </tr>

@@ -12,7 +12,7 @@ if ($members->have_posts()) {
     while ($members->have_posts()) {
         $members->the_post();
         ?>
-        <div class="sc_our_team <?php echo get_option('sc_our_team_template'); ?>">
+        <div class="sc_our_team <?php echo esc_html( get_option('sc_our_team_template') ); ?>">
             <h1><?php the_title() ?></h1>
             <div class='content'>
                 <?php the_post_thumbnail(); ?>

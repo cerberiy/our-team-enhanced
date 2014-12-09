@@ -3,7 +3,7 @@
   Plugin Name: Our Team Showcase
   Plugin URI: http://smartcatdesign.net/our-team-showcase/
   Description: Display your team members in a very attractive way as a widget or page with a shortcode
-  Version: 1.2
+  Version: 1.3
   Author: SmartCat
   Author URI: http://smartcatdesign.net
   License: GPL v2
@@ -127,7 +127,7 @@ function set_our_team($atts) {
         include 'inc/grid.php';
         $output = ob_get_clean();
     } else {
-        include 'inc/' . get_option('sc_our_team_template') . '.php';
+        include 'inc/' . esc_attr( get_option('sc_our_team_template') ) . '.php';
         $output = ob_get_clean();
     }
     return $output;
@@ -397,7 +397,7 @@ function sc_get_args(){
         'meta_key' => 'sc_member_order',
         'orderby' => 'meta_value_num',
         'order' => 'ASC',
-        'posts_per_page' => get_option('sc_our_team_member_count'),
+        'posts_per_page' => esc_attr( get_option('sc_our_team_member_count') ),
     );
     
     return $args;

@@ -7,7 +7,7 @@
 $args = sc_get_args();
 $members = new WP_Query($args);
 ?>
-<div id="sc_our_team" class="<?php echo get_option('sc_our_team_template'); ?>">
+<div id="sc_our_team" class="<?php echo esc_html( get_option('sc_our_team_template') ); ?>">
     <div class="clear"></div>
     <?php
     if ($members->have_posts()) {
