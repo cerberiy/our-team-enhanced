@@ -4,7 +4,7 @@ Donate link: http://smartcatdesign.net
 Tags: team, page, widget, shortcode, members, title, sidebar, honeycomb, stack, custom, shortcode, template, social, profile, custom post type
 Requires at least: 3.2
 Tested up to: 3.91
-Stable tag: 1.2
+Stable tag: 1.3
 License: GPLv2 or later
 
 The best way to display your employees, team members, or any type of list. SEO friendly, comes with multiple templates & drag & drop re-order functionality. Ready out of the box! Display your team members in a professional and modern style.
