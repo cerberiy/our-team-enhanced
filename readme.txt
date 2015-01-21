@@ -1,17 +1,17 @@
 === Our Team Showcase ===
 Contributors: smartcat
 Donate link: http://smartcatdesign.net
-Tags: team, page, widget, shortcode, members, title, sidebar, honeycomb, stack, custom, shortcode, template, social, profile, custom post type
+Tags: team, staff, employees, widget, shortcode, members, honeycomb, stack, grid, custom, template, social, profile, custom post type, portfolio, profile,meet team, skills, cv,v-card
 Requires at least: 3.2
-Tested up to: 3.91
+Tested up to: 4.1
 Stable tag: 1.3
 License: GPLv2 or later
 
-The best way to display your employees, team members, or any type of list. SEO friendly, comes with multiple templates & drag & drop re-order functionality. Ready out of the box! Display your team members in a professional and modern style.
+The best way to display your employees, team members, or any type of list. Multiple appealing templates,SEO friendly, re-order functionality.
 
 == Description ==
 
-[View Demo](http://smartcatdesign.net/our-team-showcase/)
+[View Demo](http://smartcatdesign.net/our-team-showcase-demo/)
 This demo shows you the grid style template.
 
 * This plugin allows you to add, edit, search and display your team members on any page, or in a widget
@@ -35,6 +35,13 @@ quickly and easily.
 2. OR - Upload the unpacked folder folder via FTP into /wp-content/plugins
 
 == Changelog == 
+
+= 2.0 = 
+1. Major appearance and functionality changes
+2. updated pro version
+
+= 1.3 =
+1. sanitization fixes
 
 = 1.2 =
 1. Fix bug with team showing above all content

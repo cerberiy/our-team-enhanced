@@ -84,37 +84,45 @@
     .larger{ font-size: larger;}
     .bold{ font-weight: bold;}
     .editcursor{ cursor: text}
-    .red{ color: #CC0000; }
+    .red{ color: #CC0000; font-size: 12px;}
 </style>
 
 <div id="wrapper">
     <div id="gopro">
         <div class="left">
             <h1><b>Our Team Settings</b></h1>
-            <div><em>Why go pro ?</em> 2 additional templates: Stacked and Honeycomb. As well as color customization, and the option to add different team groups/departments</div>
+            <div><em>Why go pro?</em> More templates, more features, and more control! <br>Professional, sleek and easily customizable Team page & widget with extra options!</div>
         </div>
         <div class="right">
-            <a href="http://smartcatdesign.net/product/our-team-showcase-pro/" target="_blank" class="button-primary" style="padding: 40px;line-height: 0;font-size: 20px">GO PRO NOW</a>
+            <a href="http://smartcatdesign.net/our-team-showcase-demo/" target="_blank" class="button-secondary" style="padding: 40px;line-height: 0;font-size: 20px">View Demo</a>
+        </div>
+        <div class="right" style="margin-right: 20px">
+            <a href="http://smartcatdesign.net/downloads/our-team-showcase/" target="_blank" class="button-primary" style="padding: 40px;line-height: 0;font-size: 20px">GO PRO NOW</a>
         </div>
     </div>
     <div class="width25 right">
+        
         <table class="widefat">
             <thead>
-                <tr>
-                    <th><b>Pro version features</b></th>
-                </tr>
-                <tr>
-                    <td>
-                        <ul>
-                            <li>2 very appealing additional display templates</li>
-                            <li>Easy Color customization with a color picker</li>
-                            <li>Assign team members to groups or departments</li>
-                            <li>Control which groups to show, or show all members</li>
-                        </ul>
-                    </td>
-                </tr>
+            <tr>
+                <th><b>Read Me</b> </th>
+            </tr>
+            <tr>
+                <td>
+                    <ul>
+                        <li>- To display the team members, add <b>[our-team]</b> shortcode in a widget, post or page</li>
+                        <li>- To display members from a specific group, add <b>[our-team group="name of your group"]</b></li>
+                        <li>- To override the template choice from the shortcode, add <b>[our-team template="grid"]</b> . Template Options: <em>grid, grid_circles, hc, stacked</em> (Pro Version)</li>
+                        <li>- Click on Re-order to arrange the order of the team members</li>
+                        <li>- Click on Groups to create groups (example: department, team names)</li>
+                        <li>- <b>Custom Template: </b>Customize your own single member page template, simply copy <b>/inc/template/team_members_template.php</b> into your theme root directory and edit it any way you want(Pro Version)</li>
+                    </ul>
+                    
+                </td>
+            </tr>
             </thead>
-        </table>
+        </table>        
+        
         <table class="widefat">
             <thead>
             <tr>
@@ -122,36 +130,13 @@
             </tr>
             <tr>
                 <td>
-                    <p>For plugin setup instructions and FAQ's <a href="http://smartcatdesign.net/our-team-showcase/" target="_blank">Click Here</a></p>
                     <p>If you come across any bugs or issues, please <a href="http://smartcatdesign.net/contact" target="_blank">contact us</a> and let us know</p>
                 </td>
             </tr>
-            <!--                <tr>
-                                <td class='center'>
-                                    <a href='http://smartcatdesign.net/under-construction-maintenance-mode-free-wordpress-plugin/' target='_blank' class='button-primary'>Support</a>
-                                    <a href='http://smartcatdesign.net/under-construction-maintenance-mode-free-wordpress-plugin/' target='_blank' class='button-primary'>Go Pro</a>
-                                </td>
-                            </tr>-->
             </thead>
         </table>
-        <table class="widefat">
-            <thead>
-            <tr>
-                <th>
-                    <b>Show your appreciation</b>
-                </th>
-            </tr>
-            <tr>
-                <td>
-                    <ul>
-                        <li>- <a href="http://wordpress.org/support/view/plugin-reviews/our-team-enhanced" target="_blank">Leave ★★★★★ rating on WordPress.org</a></li>
-                        <li>- Write a comment on the <a href="https://www.facebook.com/SmartcatDesign" target="_blank">Facebook Page</a></li>
-                    </ul>
 
-                </td>
-            </tr>
-            </thead>
-        </table>
+        
         <table class="widefat">
             <thead>
             <tr>
