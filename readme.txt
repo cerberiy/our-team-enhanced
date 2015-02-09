@@ -4,7 +4,7 @@ Donate link: http://smartcatdesign.net
 Tags: team, staff, employees, widget, shortcode, members, honeycomb, stack, grid, custom, template, social, profile, custom post type, portfolio, profile,meet team, skills, cv,v-card
 Requires at least: 3.2
 Tested up to: 4.1
-Stable tag: 2.0
+Stable tag: 2.1
 License: GPLv2 or later
 
 The best way to display your employees, team members, or any type of list. Multiple appealing templates,SEO friendly, re-order functionality.
