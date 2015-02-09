@@ -12,20 +12,27 @@ The best way to display your employees, team members, or any type of list. Multi
 == Description ==
 
 [View Demo](http://smartcatdesign.net/our-team-showcase-demo/)
-This demo shows you the grid style template.
 
-* This plugin allows you to add, edit, search and display your team members on any page, or in a widget
-quickly and easily. 
-* It comes with a couple of different styles to choose from.
+* 2 Grid templates: Circles & Boxes
+* 1 sidebar widget
 * Re-order team members with a simple drag & drop.
-* output your team members anywhere with the shortcode [our-team]
+* Select the number of columns
+* Customize the height of each row
+* Customize the margin
+* Display Social Icons & email icon
+* Unlimited Colors
+* Single member page social icons
+* Add/Edit/Search/Display your staff or team members
+* Display members by group/deparment (category)
+* It comes with different styles to choose from: boxes or circles
 * Boosts SEO with schema.org markup
+* output your team members anywhere with the shortcode [our-team]
 
 [youtube http://youtu.be/upV_fevCh_s]
 
 == Screenshots ==
 1. Plugin includes Grid boxes, Grid Circular and sidebar templates
-2. Easy edit with wysiwyg editor, featured image, and some extra options
+2. Sidebar widget
 3. Drag & Drop re-order of memebers
 4. PRO VERSION - Honeycomb Demo
 5. PRO VERSION - stacked list Demo
@@ -35,6 +42,12 @@ quickly and easily.
 2. OR - Upload the unpacked folder folder via FTP into /wp-content/plugins
 
 == Changelog == 
+
+= 2.1 =
+1. sidebar widget bug fix
+2. removed archive
+3. fixed columns bug
+4. fixed drag & drop bug
 
 = 2.0 = 
 1. Major appearance and functionality changes

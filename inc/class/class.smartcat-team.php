@@ -43,7 +43,6 @@ class SmartcatTeamPlugin {
             'single_template' => 'standard',
             'redirect' => true,
             'single_image_size' => 'small',
-            'single_skills' => 'yes'
         );
 
         if ( !get_option( 'smartcat_team_options' ) ) {
@@ -69,8 +68,10 @@ class SmartcatTeamPlugin {
         add_action( 'add_meta_boxes', array( $this, 'smartcat_team_member_info_box' ) );
         add_action( 'save_post', array( $this, 'team_member_box_save' ) );
         add_action( 'widgets_init', array( $this, 'wpb_load_widget' ) );
-        add_filter( 'manage_posts_columns', array( $this, 'posts_columns' ), 5 );
-        add_action( 'manage_posts_custom_column', array( $this, 'posts_custom_columns' ), 5, 2 );
+//        add_filter( 'manage_posts_columns', array( $this, 'posts_columns' ), 5 );
+//        add_action( 'manage_posts_custom_column', array( $this, 'posts_custom_columns' ), 5, 2 );
+        
+//        add_filter( 'manage_edit-team_member_columns', array( $this, 'edit_columns') );         
         add_action( 'wp_ajax_smartcat_team_update_pm', array( $this, 'smartcat_team_update_order' ) );
         add_action( 'wp_head', array( $this, 'sc_custom_styles' ) );
         add_filter( 'the_content', array( $this, 'smartcat_set_single_content' ) );
@@ -176,7 +177,7 @@ class SmartcatTeamPlugin {
             'public' => true,
             'menu_icon' => SC_TEAM_URL . 'inc/img/icon.png',
             'supports' => array( 'title', 'editor', 'thumbnail' ),
-            'has_archive' => true,
+            'has_archive' => false,
         );
         register_post_type( 'team_member', $args );
         flush_rewrite_rules();
@@ -299,30 +300,9 @@ class SmartcatTeamPlugin {
             update_post_meta( $post_id, 'team_member_gplus', $gplus_url );
         }
     }
-    
-    public function sc_team_switch_skill( $value ){
-        if( $value < 0 )
-            return 0;
-        elseif( $value > 10 )
-            return 10;
-        else
-            return $value;
-        
-    }
 
     public function wpb_load_widget() {
         register_widget( 'smartcat_team_widget' );
-    }
-
-    public function posts_columns( $defaults ) {
-        $defaults[ 'riv_post_thumbs' ] = __( 'Profile Picture' );
-        return $defaults;
-    }
-
-    public function posts_custom_columns( $column_name, $id ) {
-        if ( $column_name === 'riv_post_thumbs' ) {
-            echo the_post_thumbnail( 'thumbnail' );
-        }
     }
 
     public function smartcat_team_update_order() {
@@ -385,7 +365,7 @@ class SmartcatTeamPlugin {
         if ( $gplus != '' )
             echo '<a href="' . $gplus . '"><img src="' . SC_TEAM_URL . 'inc/img/google.png" class="sc-social"/></a>';
         if ( $email != '' )
-            echo '<a href=mailto:"' . $email . '"><img src="' . SC_TEAM_URL . 'inc/img/email.png" class="sc-social"/></a>';
+            echo '<a href=mailto:' . $email . '><img src="' . SC_TEAM_URL . 'inc/img/email.png" class="sc-social"/></a>';
     }
     
     public function smartcat_get_social_content( $facebook, $twitter, $linkedin, $gplus, $email ){
@@ -402,7 +382,7 @@ class SmartcatTeamPlugin {
             if ( $gplus != '' )
                 $content .= '<a href="' . $gplus . '"><img src="' . SC_TEAM_URL . 'inc/img/google.png" class="sc-social"/></a>';
             if ( $email != '' )
-                $content .= '<a href=mailto:"' . $email . '"><img src="' . SC_TEAM_URL . 'inc/img/email.png" class="sc-social"/></a>';
+                $content .= '<a href=mailto:' . $email . '><img src="' . SC_TEAM_URL . 'inc/img/email.png" class="sc-social"/></a>';
         }        
         return $content;
     }
@@ -441,7 +421,7 @@ class smartcat_team_widget extends WP_Widget {
 
     function __construct() {
         parent::__construct(
-                'smartcat_team_widget', __( 'Our Team Widget', 'smartcat_team_widget_domain' ), array( 'description' => __( 'Use this widget to display the Our Team anywhere on the site.', 'smartcat_team_widget_domain' ), )
+                'smartcat_team_widget', __( 'Our Team Sidebar Widget', 'smartcat_team_widget_domain' ), array( 'description' => __( 'Use this widget to display the Our Team anywhere on the site.', 'smartcat_team_widget_domain' ), )
         );
     }
 
@@ -456,7 +436,11 @@ class smartcat_team_widget extends WP_Widget {
             echo $args[ 'before_title' ] . $title . $args[ 'after_title' ];
 
         // This is where you run the code and display the output
-        include 'inc/widget.php';
+        include SC_TEAM_PATH . 'inc/template/widget.php';
+        
+        
+        
+        
         //        echo $args['after_title'];
     }
 

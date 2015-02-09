@@ -10,7 +10,7 @@
         <tbody>
             <tr>
                 <td>
-                    <ul class="sortable grid" data-action="<?php echo SC_TEAM_PATH; ?>">
+                    <ul class="sc_sortable grid" data-action="<?php echo SC_TEAM_PATH; ?>">
                         <?php
                         $args = array(
                             'post_type' => 'team_member',

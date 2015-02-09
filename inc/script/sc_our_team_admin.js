@@ -28,28 +28,28 @@ jQuery(document).ready(function($) {
     
     sc_team_set_order();
 
-    $('.sortable').sortable();
-    $('.handles').sortable({
+    $('.sc_sortable').sc_sortable();
+    $('.handles').sc_sortable({
         handle: 'span'
     });
-    $('.connected').sortable({
+    $('.connected').sc_sortable({
         connectWith: '.connected'
     });
-    $('.exclude').sortable({
+    $('.exclude').sc_sortable({
         items: ':not(.disabled)'
     });
-    $('.sortable').sortable().bind('sortupdate', function(e, ui) {
+    $('.sc_sortable').sc_sortable().bind('sortupdate', function(e, ui) {
         sc_team_set_order();
     });
 
     function sc_team_set_order() {
-        $('.sortable li').each(function() {
+        $('.sc_sortable li').each(function() {
             $(this).attr('sc_member_order', $(this).index());
         });
     }
 
     $('#set_order').click(function() {
-        var post_path = $('.sortable').attr('data-action');
+        var post_path = $('.sc_sortable').attr('data-action');
         // UX
         $(this).attr('disabled','disable');
         
@@ -57,7 +57,7 @@ jQuery(document).ready(function($) {
             $(this).delay(800).fadeOut(200);
         });
         
-        $('.sortable li').each(function() {
+        $('.sc_sortable li').each(function() {
             
             var data = {
                 action: 'sc_team_update_order',
@@ -90,7 +90,7 @@ jQuery(document).ready(function($) {
  */
 (function($) {
     var dragging, placeholders = $();
-    $.fn.sortable = function(options) {
+    $.fn.sc_sortable = function(options) {
         var method = String(options);
         options = $.extend({
             connectWith: false

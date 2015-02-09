@@ -45,7 +45,7 @@ root {
     width: 460px;
     font-size: 0.9em;
 }
-.connected, .sortable, .exclude, .handles {
+.connected, .sc_sortable, .exclude, .handles {
     margin: auto;
     padding: 0;
     width: 450px;
@@ -56,10 +56,10 @@ root {
     -ms-user-select: none;
     user-select: none;
 }
-.sortable.grid {
+.sc_sortable.grid {
     overflow: hidden;
 }
-.connected li, .sortable li, .exclude li, .handles li {
+.connected li, .sc_sortable li, .exclude li, .handles li {
     list-style: none;
     border: 1px solid #CCC;
     background: #F6F6F6;
@@ -75,7 +75,7 @@ root {
 li.disabled {
     opacity: 0.5;
 }
-.sortable.grid li {
+.sc_sortable.grid li {
     line-height: 80px;
     float: left;
     width: 80px;
@@ -97,7 +97,7 @@ li.highlight {
 .connected.no2 {
     float: right;
 }
-li.sortable-placeholder {
+li.sc_sortable-placeholder {
     border: 1px dashed #CCC;
     background: none;
 }

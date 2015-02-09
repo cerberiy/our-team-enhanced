@@ -169,7 +169,7 @@
             <tr>
                 <td>
                     Grid Boxes &amp; Grid Circles Demo<br>
-                    <img src="<?php echo SC_TEAM_URL ?>screenshot-1.png" width="100%">
+                    <img src="<?php echo SC_TEAM_URL ?>screenshot-1.jpg" width="100%">
                 </td>
                 <td>
                     Honeycomb Demo<br>

@@ -20,12 +20,12 @@ $team = new WP_Query($args);
             $team->the_post();
 //                            echo wp_get_attachment_url( get_post_thumbnail_id(get_the_ID() ));
             ?>
-            <div itemscope itemtype="http://schema.org/Person" class="sc_team_member">
+            <div itemscope itemtype="http://schema.org/Person" class="sc_sidebar_team_member">
                 <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
                     <?php if (has_post_thumbnail())
                             echo the_post_thumbnail('medium');
                         else
-                            echo '<img src="' . SC_TEAM_PATH .'img/noprofile.jpg" class="attachment-medium wp-post-image"/>';?>  
+                            echo '<img src="' . SC_TEAM_URL .'inc/img/noprofile.jpg" class="attachment-medium wp-post-image"/>';?>  
                 </a>
                     <div class="sc_team_member_overlay">
                         <div itemprop="name" class="sc_team_member_name">

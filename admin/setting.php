@@ -126,11 +126,12 @@
         <table class="widefat">
             <thead>
             <tr>
-                <th><b>Looking for Support?</b> </th>
+                <th><b>Showcase Your Services</b> </th>
             </tr>
             <tr>
                 <td>
-                    <p>If you come across any bugs or issues, please <a href="http://smartcatdesign.net/contact" target="_blank">contact us</a> and let us know</p>
+                    <p>Make your products/services stand out with our similar Services Showcase plugin.</p>
+                    <p><a class="button button-primary" href="https://wordpress.org/plugins/our-services-showcase/" target="_blank">Download</a></p>
                 </td>
             </tr>
             </thead>
