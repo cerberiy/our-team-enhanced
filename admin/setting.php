@@ -91,7 +91,7 @@
     <div id="gopro">
         <div class="left">
             <h1><b>Our Team Settings</b></h1>
-            <div><em>Why go pro?</em> More templates, more features, and more control! <br>Professional, sleek and easily customizable Team page & widget with extra options!</div>
+            <div><em>Why go pro?</em> 4 More templates including a uniue Honeycomb and Carouse. More features, and more control! <br>Professional, sleek and easily customizable Team page & widget with extra options!</div>
         </div>
         <div class="right">
             <a href="http://smartcatdesign.net/our-team-showcase-demo/" target="_blank" class="button-secondary" style="padding: 40px;line-height: 0;font-size: 20px">View Demo</a>
@@ -115,7 +115,7 @@
                         <li>- To override the template choice from the shortcode, add <b>[our-team template="grid"]</b> . Template Options: <em>grid, grid_circles, hc, stacked</em> (Pro Version)</li>
                         <li>- Click on Re-order to arrange the order of the team members</li>
                         <li>- Click on Groups to create groups (example: department, team names)</li>
-                        <li>- <b>Custom Template: </b>Customize your own single member page template, simply copy <b>/inc/template/team_members_template.php</b> into your theme root directory and edit it any way you want(Pro Version)</li>
+                        <li>- <b>Custom Template: </b>(Pro Version): Allows you to customize the Single Member Page</li>
                     </ul>
                     
                 </td>

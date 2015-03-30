@@ -20,6 +20,8 @@
                             <option>Select Template</option>
                             <option value="grid" <?php echo 'grid' == esc_attr( $template ) ? 'selected=selected' : ''; ?>>Grid - Boxes</option>
                             <option value="grid_circles" <?php echo 'grid_circles' == esc_attr( $template ) ? 'selected=selected' : ''; ?>>Grid - Circles</option>
+                            <option disabled="disabled">Grid Circles 2 (pro version)</option>
+                            <option disabled="disabled">Carousel (pro version)</option>
                             <option disabled="disabled">List - Stacked (pro version)</option>
                             <option disabled="disabled">Honey Comb (pro version)</option>
                         </select>
@@ -170,6 +172,10 @@
                 <td>
                     Grid Boxes &amp; Grid Circles Demo<br>
                     <img src="<?php echo SC_TEAM_URL ?>screenshot-1.jpg" width="100%">
+                </td>
+                <td>
+                    Carousel Demo<br>
+                    <img src="<?php echo SC_TEAM_URL ?>screenshot-6.jpg" width="100%">
                 </td>
                 <td>
                     Honeycomb Demo<br>

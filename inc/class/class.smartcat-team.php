@@ -13,7 +13,7 @@ add_action('wp_ajax_sc_team_update_order', 'sc_team_update_order');
 
 class SmartcatTeamPlugin {
 
-    const VERSION = '1.1';
+    const VERSION = '2.2';
 
     private static $instance;
     private $options;
@@ -47,10 +47,11 @@ class SmartcatTeamPlugin {
 
         if ( !get_option( 'smartcat_team_options' ) ) {
             add_option( 'smartcat_team_options', $options );
+            $options[ 'redirect' ] = true;
+            update_option( 'smartcat_team_options', $options );            
         }
 
-        $options[ 'redirect' ] = true;
-        update_option( 'smartcat_team_options', $options );
+
     }
 
     public static function deactivate() {
@@ -67,11 +68,7 @@ class SmartcatTeamPlugin {
         add_shortcode( 'our-team', array( $this, 'set_our_team' ) );
         add_action( 'add_meta_boxes', array( $this, 'smartcat_team_member_info_box' ) );
         add_action( 'save_post', array( $this, 'team_member_box_save' ) );
-        add_action( 'widgets_init', array( $this, 'wpb_load_widget' ) );
-//        add_filter( 'manage_posts_columns', array( $this, 'posts_columns' ), 5 );
-//        add_action( 'manage_posts_custom_column', array( $this, 'posts_custom_columns' ), 5, 2 );
-        
-//        add_filter( 'manage_edit-team_member_columns', array( $this, 'edit_columns') );         
+        add_action( 'widgets_init', array( $this, 'wpb_load_widget' ) );        
         add_action( 'wp_ajax_smartcat_team_update_pm', array( $this, 'smartcat_team_update_order' ) );
         add_action( 'wp_head', array( $this, 'sc_custom_styles' ) );
         add_filter( 'the_content', array( $this, 'smartcat_set_single_content' ) );
@@ -437,11 +434,7 @@ class smartcat_team_widget extends WP_Widget {
 
         // This is where you run the code and display the output
         include SC_TEAM_PATH . 'inc/template/widget.php';
-        
-        
-        
-        
-        //        echo $args['after_title'];
+
     }
 
     // Widget Backend

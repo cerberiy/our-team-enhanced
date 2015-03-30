@@ -1,7 +1,7 @@
 === Our Team Showcase ===
 Contributors: smartcat
 Donate link: http://smartcatdesign.net
-Tags: team, staff, employees, widget, shortcode, members, honeycomb, stack, grid, custom, template, social, profile, custom post type, portfolio, profile,meet team, skills, cv,v-card
+Tags: team, staff, employees, widget, shortcode, members, carousel, honeycomb, stack, grid, custom, template, social, profile, custom post type, portfolio, profile,meet team, skills, cv,v-card
 Requires at least: 3.2
 Tested up to: 4.1
 Stable tag: 2.1
@@ -13,8 +13,23 @@ The best way to display your employees, team members, or any type of list. Multi
 
 [View Demo](http://smartcatdesign.net/our-team-showcase-demo/)
 
+Our Team Showcase allows you to easily create and display your team members & staff and show them on your site with ease. Your visitors will see a beautiful & animated
+list of your team, with their pictures, links to social icons, and link to each member page. 
+
+First, install and activate the plugin. You will be automatically re-directed to the plugin settongs page. Select your preferred settings and colors, Add your staff, upload pictures and finally
+add the shortcode [our-team] to the page, post or widget where you want to display them. You can also set the order that the members appear in with a user-friendly drag & drop interface.
+
+If your theme has a sidebar, you can use the extra custom sidebar widget to display the team members in the sidebar.
+
+The pro version provides you with 4 additional and very unique templates. Impress your site visitors by using the pro version which includes a Honeycomb layout, Scrolling Carousel, Stacked
+list and an additional circular template.
+
+Pro version available here: [Pro Version](http://smartcatdesign.net/downloads/our-team-showcase/)
+
+Available Customizations:
+
 * 2 Grid templates: Circles & Boxes
-* 1 sidebar widget
+* Custom sidebar widget
 * Re-order team members with a simple drag & drop.
 * Select the number of columns
 * Customize the height of each row
@@ -27,6 +42,9 @@ The best way to display your employees, team members, or any type of list. Multi
 * It comes with different styles to choose from: boxes or circles
 * Boosts SEO with schema.org markup
 * output your team members anywhere with the shortcode [our-team]
+* 4 additional templates with the Pro version
+* Honeycomb, Stacked and Carousel templates with Pro version
+* Easy to setup
 
 [youtube http://youtu.be/upV_fevCh_s]
 
@@ -36,12 +54,17 @@ The best way to display your employees, team members, or any type of list. Multi
 3. Drag & Drop re-order of memebers
 4. PRO VERSION - Honeycomb Demo
 5. PRO VERSION - stacked list Demo
+6. PRO VERSION - Carousel Demo
 
 == Installation ==
 1. Download the plugin, then upload the zipped file to your site from the WordPress dashboard plugin uploader menu
 2. OR - Upload the unpacked folder folder via FTP into /wp-content/plugins
 
 == Changelog == 
+
+= 2.2 =
+1. Fixed plugin update bug. The plugin no longer loses settings on update
+2. Added additional templates to the pro version
 
 = 2.1 =
 1. sidebar widget bug fix
