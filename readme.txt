@@ -3,7 +3,7 @@ Contributors: smartcat
 Donate link: http://smartcatdesign.net
 Tags: team, staff, employees, widget, shortcode, members, carousel, honeycomb, stack, grid, custom, template, social, profile, custom post type, portfolio, profile,meet team, skills, cv,v-card
 Requires at least: 3.2
-Tested up to: 4.1
+Tested up to: 4.2.2
 Stable tag: 2.2
 License: GPLv2 or later
 
@@ -11,7 +11,7 @@ The best way to display your employees, team members, or any type of list. Multi
 
 == Description ==
 
-[View Demo](http://smartcatdesign.net/our-team-showcase-demo/)
+[View Demo](https://smartcatdesign.net/our-team-showcase-demo/)
 
 Our Team Showcase allows you to easily create and display your team members & staff and show them on your site with ease. Your visitors will see a beautiful & animated
 list of your team, with their pictures, links to social icons, and link to each member page. 
@@ -24,15 +24,14 @@ If your theme has a sidebar, you can use the extra custom sidebar widget to disp
 The pro version provides you with 4 additional and very unique templates. Impress your site visitors by using the pro version which includes a Honeycomb layout, Scrolling Carousel, Stacked
 list and an additional circular template.
 
-Pro version available here: [Pro Version](http://smartcatdesign.net/downloads/our-team-showcase/)
+Pro version available here: [Pro Version](https://smartcatdesign.net/downloads/our-team-showcase/)
 
 Available Customizations:
 
-* 2 Grid templates: Circles & Boxes
+* 3 Grid templates: Circles & Boxes
 * Custom sidebar widget
 * Re-order team members with a simple drag & drop.
 * Select the number of columns
-* Customize the height of each row
 * Customize the margin
 * Display Social Icons & email icon
 * Unlimited Colors
@@ -42,11 +41,20 @@ Available Customizations:
 * It comes with different styles to choose from: boxes or circles
 * Boosts SEO with schema.org markup
 * output your team members anywhere with the shortcode [our-team]
-* 4 additional templates with the Pro version
+* 3 additional templates with the Pro version
 * Honeycomb, Stacked and Carousel templates with Pro version
 * Easy to setup
 
-[youtube http://youtu.be/upV_fevCh_s]
+Pro Version Features:
+
+* 3 Additional team templates: Carousel, Honeycomb, Stacked
+* 3 Single member display templates
+* Animated sliding Panel & Card
+* Click-to-call team member phone number
+* Team member personal quote
+* Looks great on desktop & mobile
+
+[Quick Demo](http://youtu.be/upV_fevCh_s] "Our Team Showcase")
 
 == Screenshots ==
 1. Plugin includes Grid boxes, Grid Circular and sidebar templates
@@ -61,6 +69,12 @@ Available Customizations:
 2. OR - Upload the unpacked folder folder via FTP into /wp-content/plugins
 
 == Changelog == 
+
+= 2.3 =
+1. Added team member phone number
+2. Added social icons link opening in a new page
+3. Added a new template ( Grid Circles 2 )
+4. Enhancements to responsive
 
 = 2.2 =
 1. Fixed plugin update bug. The plugin no longer loses settings on update

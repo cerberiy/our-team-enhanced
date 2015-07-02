@@ -6,6 +6,13 @@
 
 jQuery(document).ready(function($) {
     
+//    $('.sc_team_add_skill').click( function() {
+//        
+//        $('#sc_team_options_skills')
+//                .append('<p><input type="text" name="team_member_skills" placeholder="Skill Title"/><input type="text" name="team_member_skill_value" placeholder="Skill rating( 1 to 10 )"/></p>');
+//    })
+    
+    
     sc_team_set_display();
     
     $('#sc_our_team_template').change(function(){

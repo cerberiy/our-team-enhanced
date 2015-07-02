@@ -84,7 +84,6 @@
     .larger{ font-size: larger;}
     .bold{ font-weight: bold;}
     .editcursor{ cursor: text}
-    .red{ color: #CC0000; font-size: 12px;}
 </style>
 
 <div id="wrapper">
@@ -94,28 +93,31 @@
             <div><em>Why go pro?</em> 4 More templates including a uniue Honeycomb and Carouse. More features, and more control! <br>Professional, sleek and easily customizable Team page & widget with extra options!</div>
         </div>
         <div class="right">
-            <a href="http://smartcatdesign.net/our-team-showcase-demo/" target="_blank" class="button-secondary" style="padding: 40px;line-height: 0;font-size: 20px">View Demo</a>
+            <a href="https://smartcatdesign.net/our-team-showcase-demo/" target="_blank" class="button-secondary" style="padding: 40px;line-height: 0;font-size: 20px">View Demo</a>
         </div>
         <div class="right" style="margin-right: 20px">
-            <a href="http://smartcatdesign.net/downloads/our-team-showcase/" target="_blank" class="button-primary" style="padding: 40px;line-height: 0;font-size: 20px">GO PRO NOW</a>
+            <a href="https://smartcatdesign.net/downloads/our-team-showcase/" target="_blank" class="button-primary" style="padding: 40px;line-height: 0;font-size: 20px">GO PRO NOW</a>
         </div>
     </div>
     <div class="width25 right">
+     
         
         <table class="widefat">
             <thead>
             <tr>
-                <th><b>Read Me</b> </th>
+                <th><b>Quick Reference</b> </th>
             </tr>
             <tr>
                 <td>
                     <ul>
+                        <li>- Image recommended size is 400x400 px. To achieve the best appearance, please ensure all team member images are the same size.</li>
                         <li>- To display the team members, add <b>[our-team]</b> shortcode in a widget, post or page</li>
                         <li>- To display members from a specific group, add <b>[our-team group="name of your group"]</b></li>
-                        <li>- To override the template choice from the shortcode, add <b>[our-team template="grid"]</b> . Template Options: <em>grid, grid_circles, hc, stacked</em> (Pro Version)</li>
+                        <li>- To override the template choice from the shortcode, add <b>[our-team template="grid"]</b> . Template Options: <em>grid, grid_circles, grid_circles2, carousel, hc, stacked</em></li>
+                        <li>- To override the single template choice from the shortcode add <b>[our-team single_template="vcard"]</b>. Other option is <b>panel</b> </li>
                         <li>- Click on Re-order to arrange the order of the team members</li>
                         <li>- Click on Groups to create groups (example: department, team names)</li>
-                        <li>- <b>Custom Template: </b>(Pro Version): Allows you to customize the Single Member Page</li>
+                        <li>- Custom Single Template: Copy /inc/template/single-team_member.php into your theme root folder and edit it as you please. <a href="https://codex.wordpress.org/Post_Type_Templates" target="_BLANK">More Details</a></li>
                     </ul>
                     
                 </td>
@@ -125,32 +127,14 @@
         
         <table class="widefat">
             <thead>
-            <tr>
-                <th><b>Showcase Your Services</b> </th>
-            </tr>
+
             <tr>
                 <td>
-                    <p>Make your products/services stand out with our similar Services Showcase plugin.</p>
-                    <p><a class="button button-primary" href="https://wordpress.org/plugins/our-services-showcase/" target="_blank">Download</a></p>
+                    <p>If you come across any bugs or issues, please <strong><a href="https://smartcatdesign.net/faqs/" target="_blank">contact us</a></strong> and let us know</p>
                 </td>
             </tr>
             </thead>
         </table>
 
-        
-        <table class="widefat">
-            <thead>
-            <tr>
-                <th>
-                    <b>Basic Setup Demo</b>
-                </th>
-            </tr>
-            <tr>
-                <td>
-                    <iframe width="100%" height="300px" src="//www.youtube.com/embed/upV_fevCh_s?rel=0" frameborder="0" allowfullscreen></iframe>
-                    
-                </td>
-            </tr>
-            </thead>
-        </table>
+
     </div>

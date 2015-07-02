@@ -55,6 +55,7 @@ $team = new WP_Query($args);
             </div>
         <?php
         }
+        wp_reset_postdata();
     } else {
         echo 'There are no team members to display';
     }

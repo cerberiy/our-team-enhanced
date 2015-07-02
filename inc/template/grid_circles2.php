@@ -29,17 +29,18 @@ echo ' sc-col' . $this->options[ 'columns' ];
 
                     <?php if ( 'yes' == $this->options[ 'name' ] ) : ?>
                         <div itemprop="name" class="sc_team_member_name">
-                            <a href="<?php the_permalink() ?>" rel="bookmark" >                            
+                            <a href="<?php the_permalink() ?>" rel="bookmark" class="<?php echo $this->check_clicker( $single_template ); ?>">                            
                                 <?php the_title() ?>
                             </a>
                         </div>
                     <?php endif; ?>
 
-                    <?php if ( 'yes' == $this->options[ 'title' ] && get_post_meta( get_the_ID(), 'team_member_title', true )) : ?>
+                    <?php if ( 'yes' == $this->options[ 'title' ] && get_post_meta( get_the_ID(), 'team_member_title', true ) ) : ?>
                         <div itemprop="jobtitle" class="sc_team_member_jobtitle">
-                            <?php echo get_post_meta( get_the_ID(), 'team_member_title', true ); ?>
+                            <span><?php echo get_post_meta( get_the_ID(), 'team_member_title', true ); ?></span>
                         </div>
                     <?php endif; ?>
+
                     
                     <div class="sc_team_content">
                         <?php the_content(); ?>
@@ -53,11 +54,7 @@ echo ' sc-col' . $this->options[ 'columns' ];
 
                     <div class="sc_team_member_overlay"></div>
 
-                    <div class="sc_team_more">
-                        <a href="<?php the_permalink() ?>" rel="bookmark" class="<?php echo $this->check_clicker( $single_template ); ?>"> 
-                            <img src="<?php echo SC_TEAM_URL . 'inc/img/more.png' ?>"/>
-                        </a>
-                    </div>
+
                 </div>
             </div>
             <?php
@@ -69,3 +66,4 @@ echo ' sc-col' . $this->options[ 'columns' ];
     ?>
     <div class="clear"></div>
 </div>
+

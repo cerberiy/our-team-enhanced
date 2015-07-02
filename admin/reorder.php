@@ -54,8 +54,8 @@
     <!--<input type="submit" name="wp_popup_reset" value="Reset" class="button button-primary" onclick="return confirm_reset();"/>-->
     <a class="button button-primary" id="set_order">Save Order</a>
     <p class="sc_team_member_update_status">
-        <span class="sc_team_member_updating"><img src="<?php echo SC_TEAM_PATH . 'img/spinner.gif' ?>" class=""/> Saving</span>
-        <span class="sc_team_member_saved"><img src="<?php echo SC_TEAM_PATH . 'img/check.png' ?>" class=""/> Saved!</span>
+        <span class="sc_team_member_updating"><img src="<?php echo SC_TEAM_URL . 'inc/img/spinner.gif' ?>" class=""/> Saving</span>
+        <span class="sc_team_member_saved"><img src="<?php echo SC_TEAM_URL . 'inc/img/check.png' ?>" class=""/> Saved!</span>
     </p>
 </div>
 </div>

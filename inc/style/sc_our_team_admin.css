@@ -59,6 +59,9 @@ root {
 .sc_sortable.grid {
     overflow: hidden;
 }
+.sc_sortable .sc_team_member_inner{
+    cursor: move;
+}
 .connected li, .sc_sortable li, .exclude li, .handles li {
     list-style: none;
     border: 1px solid #CCC;
@@ -101,11 +104,15 @@ li.sc_sortable-placeholder {
     border: 1px dashed #CCC;
     background: none;
 }
-.sc_options_table{
-    float: left;
-    width: 45%;
+.sc_options_table input[type="text"]{
+/*    float: left; */
+    width: 100%;
     
 }
+.sc_options_table table.widefat{
+    border: none;
+}
+
 .sc_options_table a.button{
     /*margin-bottom: 5px;*/
 }
